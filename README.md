@@ -1,6 +1,6 @@
 ## Shield agent
 
-Shield agent is a Drupal 8 module that provides the capabilities of "locking" down Drupal itself as an application for production use in an enterprise organization. It is not uncommon for enterprise organizations to leverage what is known as an "edit" domain _or_ not require a set of common system routes to be accessible. This module aims to provide a solution to solving this problem.
+Shield agent is a Drupal 10 module. 2.x signifies backwards incompatibility with Drupal 9 due to underlying Symfony changes. This module provides the capabilities of "locking" down Drupal itself as an application for production use in an enterprise organization. It is not uncommon for enterprise organizations to leverage what is known as an "edit" domain _or_ not require a set of common system routes to be accessible. This module aims to provide a solution to solving this problem.
 
 #### Setup & configuration
 
