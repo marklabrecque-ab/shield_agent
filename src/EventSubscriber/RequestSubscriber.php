@@ -67,7 +67,7 @@ class RequestSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   public function onRequest(GetResponseEvent $event) {
-    if (!$event->isMasterRequest()) {
+    if (!$event->isMainRequest()) {
       return;
     }
 

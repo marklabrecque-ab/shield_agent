@@ -60,7 +60,7 @@ class Http4xxExceptionSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   public function on4xxException(GetResponseForExceptionEvent $event) {
-    if (!$event->isMasterRequest()) {
+    if (!$event->isMainRequest()) {
       return;
     }
 
