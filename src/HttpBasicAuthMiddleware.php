@@ -42,7 +42,7 @@ class HttpBasicAuthMiddleware implements HttpKernelInterface {
   /**
    * {@inheritdoc}
    */
-  public function handle(Request $request, int $type = self::MAIN_REQUEST, bool $catch = true): Response {
+  public function handle(Request $request, $type = self::MAIN_REQUEST, $catch = TRUE) : Response {
     if ($type != self::MAIN_REQUEST) {
       return $this->httpKernel->handle($request, $type, $catch);
     }
@@ -97,7 +97,7 @@ class HttpBasicAuthMiddleware implements HttpKernelInterface {
     $username = $protector_settings->get('auth.username');
     $password = $protector_settings->get('auth.password');
 
-    if ($type != self::MAIN_REQUEST || empty($username) || (PHP_SAPI === 'cli' && $allow_cli)) {
+    if ($type != self::MASTER_REQUEST || empty($username) || (PHP_SAPI === 'cli' && $allow_cli)) {
       return $this->httpKernel->handle($request, $type, $catch);
     }
     else {

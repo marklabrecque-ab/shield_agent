@@ -8,8 +8,9 @@ use Drupal\Core\Routing\CurrentRouteMatch;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\shield_agent\AccessDeniedHttpException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Acts on all incoming master requests, determining if they are protected.
@@ -66,7 +67,7 @@ class RequestSubscriber implements EventSubscriberInterface {
   /**
    * {@inheritdoc}
    */
-  public function onRequest(GetResponseEvent $event) {
+  public function onRequest(RequestEvent $event) {
     if (!$event->isMainRequest()) {
       return;
     }
